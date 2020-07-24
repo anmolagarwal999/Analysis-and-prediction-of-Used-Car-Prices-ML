@@ -40,6 +40,10 @@ with open('data.pickle', 'wb') as f:
     # Pickle the 'data' dictionary using the highest protocol available.
     pickle.dump(regressor,f)
 
+with open('info.pickle', 'wb') as f:
+    # Pickle the 'data' dictionary using the highest protocol available.
+    pickle.dump(info,f)
+
 
 
 
