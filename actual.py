@@ -114,9 +114,44 @@ input_df=pd.DataFrame(input_dict)
 ans=predict_values(input_df,regressor,train_cols,sc)
 print(ans)
 
+input_dict={
+    "brand":["Maruti"],
+    "model":["Alto"],
+    "seats":[4],
+    "engine":[998],
+    "owner":["First"],
+    "fuel":["CNG"],
+    "transmission":["Manual"],
+    "year":[2014]   ,
+    "kms":[40929] 
+
+    }
+
+input_df=pd.DataFrame(input_dict)
+ans=predict_values(input_df,regressor,train_cols,sc)
+print(ans)
+
+input_dict={
+    "brand":["Toyota"],
+    "model":["Innova"],
+    "seats":[7],
+    "engine":[2393],
+    "owner":["First"],
+    "fuel":["Diesel"],
+    "transmission":["Manual"],
+    "year":[2017]   ,
+    "kms":[34000] 
+
+    }
+
+input_df=pd.DataFrame(input_dict)
+ans=predict_values(input_df,regressor,train_cols,sc)
+print(ans)
 
 
 
+#print(sc.__dict__)
+#print(regressor.__dict__)
 
 
 

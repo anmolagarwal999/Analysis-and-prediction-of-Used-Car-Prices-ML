@@ -36,7 +36,7 @@ def do_random_forest(cars):
     sc = StandardScaler()
     X_train = sc.fit_transform(X_train)
     X_test = sc.transform(X_test)   
-    regressor = RandomForestRegressor(n_estimators=100, random_state=32321)
+    regressor = RandomForestRegressor(n_estimators=100, random_state=3231)
     regressor.fit(X_train, y_train)
     y_pred = regressor.predict(X_test)   
     print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))
@@ -46,3 +46,4 @@ def do_random_forest(cars):
     print(coeff)
     print(type(regressor))
     return regressor,train_cols,sc
+
