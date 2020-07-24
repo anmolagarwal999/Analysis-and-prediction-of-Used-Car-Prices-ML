@@ -13,6 +13,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import nltk
 ########################################
+from random_forest_doc import *
+#########################################
 
 # "app" is an object of class "Flask"
 '''__name__ is the name of the current Python module. The app needs to know where it’s located to set up some paths, 
@@ -21,33 +23,9 @@ app = Flask(__name__)
 
 #################################################################
 # specifying the excel file to be used
-excel_file = "Data_Train (1).xlsx"
+excel_file = "ideal.xlsx"
 cars = pd.read_excel(excel_file)
 
-# Setting all columns to lower case
-cars.columns = [x.lower() for x in cars.columns]
-cars = cars.rename(columns={"location": "city", "kilometers_driven": "kms", "fuel_type": "fuel",
-                            "owner_type": "owner", })
-
-
-a1 = []
-a2 = []
-for s in cars["name"]:
-    ary = s.split(' ')
-    a1.append(ary[0])
-    a2.append(ary[1])
-
-brand = pd.Series(a1)
-model = pd.Series(a2)
-
-cars["brand"] = brand
-cars["model"] = model
-cars.loc[cars["brand"] == "Land", "brand"] = "Land_Rover"
-cars.loc[cars["brand"] == "Isuzu", "brand"] = "ISUZU"
-
-arr = list(brand.unique())
-arr.remove("Isuzu")
-arr2 = list(model.unique())
 
 info = {}
 for i in range(len(cars)):
@@ -56,33 +34,44 @@ for i in range(len(cars)):
     info[model_curr] = brand_curr
 
 
+do_random_forest(cars)
+
+
+
+
+
+
+
+
+
+
 #############################################################
 
 
-# @app.route() creates a simple route
-@app.route('/')
-def index():
-    return "<h1>This is basic.py file</h1>"
+# # @app.route() creates a simple route
+# @app.route('/')
+# def index():
+#     return "<h1>This is basic.py file</h1>"
 
 
-@app.route('/predict')
-def get_data():
-    pass
+# @app.route('/predict')
+# def get_data():
+#     pass
 
 
-@app.route('/information')
-def info():
-    return "<h1>Vought International is evil corp</h1>"
-# ///////////////////////////////////////////
+# @app.route('/information')
+# def information():
+#     return "<h1>Vought International is evil corp</h1>"
+# # ///////////////////////////////////////////
 
 
-@app.route('/hero/<name>')
-def hero(name):
-    # print(name)
-    return f"<h1>The name of the hero is {name}</h1>"
+# @app.route('/hero/<name>')
+# def hero(name):
+#     # print(name)
+#     return f"<h1>The name of the hero is {name}</h1>"
 
 
-if __name__ == "__main__":
-    # debug - True helps to make the real changes in code visible in the browser
-    # debug -True job is to display debugging pages if an error occurs
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     # debug - True helps to make the real changes in code visible in the browser
+#     # debug -True job is to display debugging pages if an error occurs
+#     app.run(debug=True)
