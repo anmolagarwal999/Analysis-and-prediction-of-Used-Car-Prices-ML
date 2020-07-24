@@ -24,6 +24,7 @@ def do_random_forest(cars):
     col_now=list(cars2.columns)
     col_now.remove("price")
     train_cols=col_now
+    print(train_cols)
 
     X = cars2[col_now]
     y = cars2['price']
@@ -44,4 +45,4 @@ def do_random_forest(cars):
     coeff = r2_score(y_test, y_pred)
     print(coeff)
     print(type(regressor))
-    return regressor
+    return regressor,train_cols,sc

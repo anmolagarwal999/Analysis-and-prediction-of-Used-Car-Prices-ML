@@ -35,7 +35,7 @@ for i in range(len(cars)):
     info[model_curr] = brand_curr
 
 
-regressor=do_random_forest(cars)
+regressor,train_cols,sc=do_random_forest(cars)
 with open('data.pickle', 'wb') as f:
     # Pickle the 'data' dictionary using the highest protocol available.
     pickle.dump(regressor,f)
@@ -43,6 +43,14 @@ with open('data.pickle', 'wb') as f:
 with open('info.pickle', 'wb') as f:
     # Pickle the 'data' dictionary using the highest protocol available.
     pickle.dump(info,f)
+
+with open('train_cols.pickle', 'wb') as f:
+    # Pickle the 'data' dictionary using the highest protocol available.
+    pickle.dump(train_cols,f)
+
+with open('sc.pickle', 'wb') as f:
+    # Pickle the 'data' dictionary using the highest protocol available.
+    pickle.dump(sc,f)
 
 
 

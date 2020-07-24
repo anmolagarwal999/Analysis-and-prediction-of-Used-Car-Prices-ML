@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import nltk
 import pickle
 ########################################
+from predict_value import predict_values
 #########################################
 
 # "app" is an object of class "Flask"
@@ -27,13 +28,91 @@ app = Flask(__name__)
 with open('data.pickle', 'rb') as f:
     # Pickle the 'data' dictionary using the highest protocol available.
     regressor=pickle.load(f)
-print(regressor)
+#print(regressor)
 
 with open('info.pickle', 'rb') as f:
     # Pickle the 'data' dictionary using the highest protocol available.
     info=pickle.load(f)
-print(info)
+#print(info)
 
+with open('train_cols.pickle', 'rb') as f:
+    # Pickle the 'data' dictionary using the highest protocol available.
+    train_cols=pickle.load(f)
+#print(train_cols)
+
+with open('sc.pickle', 'rb') as f:
+    # Pickle the 'data' dictionary using the highest protocol available.
+    sc=pickle.load(f)
+
+
+
+# master_list=['name','power','mileage','city']
+
+# name            Hyundai Creta 1.6 CRDi SX Option
+# city                                        Pune
+# year                                        2015
+# kms                                        41000
+# fuel                                      Diesel
+# transmission                              Manual
+# owner                                      First
+# mileage                                    19.67
+# engine                                      1582
+# power                                      126.2
+# seats                                          5
+# price                                       12.5
+# brand                                    Hyundai
+# model                                      Creta
+
+
+input_dict={
+    "brand":["Hyundai"],
+    "model":["Creta"],
+    "seats":[5],
+    "engine":[1582],
+    "owner":["First"],
+    "fuel":["Diesel"],
+    "transmission":["Manual"],
+    "year":[2015],
+    "kms":[41000] 
+    }
+
+input_df=pd.DataFrame(input_dict)
+ans=predict_values(input_df,regressor,train_cols,sc)
+print(ans)
+
+input_dict={
+    "brand":["Hyundai"],
+    "model":["Creta"],
+    "seats":[5],
+    "engine":[1582],
+    "owner":["First"],
+    "fuel":["Diesel"],
+    "transmission":["Manual"],
+    "year":[2018]   ,
+        "kms":[41000] 
+
+    }
+
+input_df=pd.DataFrame(input_dict)
+ans=predict_values(input_df,regressor,train_cols,sc)
+print(ans)
+
+input_dict={
+    "brand":["Skoda"],
+    "model":["Superb"],
+    "seats":[5],
+    "engine":[2000],
+    "owner":["First"],
+    "fuel":["Diesel"],
+    "transmission":["Manual"],
+    "year":[2012]   ,
+    "kms":[4000] 
+
+    }
+
+input_df=pd.DataFrame(input_dict)
+ans=predict_values(input_df,regressor,train_cols,sc)
+print(ans)
 
 
 
