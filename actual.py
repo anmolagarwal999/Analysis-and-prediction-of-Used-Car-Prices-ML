@@ -83,6 +83,8 @@ def getModels(brand):
 def index():
     form_obj=carForm()
     form_obj.car_model.choices=getModels("Audi")
+    if request.method=='POST':
+        return f'<h1>{form_obj.car_brand.data}->{form_obj.car_model.data}</h1>'
     return render_template("index.html",form=form_obj)
 
 if __name__ == "__main__":
