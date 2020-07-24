@@ -87,6 +87,13 @@ def index():
         return f'<h1>{form_obj.car_brand.data}->{form_obj.car_model.data}</h1>'
     return render_template("index.html",form=form_obj)
 
+@app.route('/brand/<company>')
+def model_fetch(company):
+    model_list=getModels(company)
+    model_list.sort()
+    return jsonify({'models_list':model_list})   
+
+
 if __name__ == "__main__":
     # debug - True helps to make the real changes in code visible in the browser
     # debug -True job is to display debugging pages if an error occurs
