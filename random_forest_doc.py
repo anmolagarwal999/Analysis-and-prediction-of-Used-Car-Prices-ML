@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import pickle
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
@@ -42,3 +43,5 @@ def do_random_forest(cars):
     print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred))) 
     coeff = r2_score(y_test, y_pred)
     print(coeff)
+    print(type(regressor))
+    return regressor

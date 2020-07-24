@@ -12,6 +12,7 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 import nltk
+import pickle
 ########################################
 from random_forest_doc import *
 #########################################
@@ -34,7 +35,10 @@ for i in range(len(cars)):
     info[model_curr] = brand_curr
 
 
-do_random_forest(cars)
+regressor=do_random_forest(cars)
+with open('data.pickle', 'wb') as f:
+    # Pickle the 'data' dictionary using the highest protocol available.
+    pickle.dump(regressor,f)
 
 
 
