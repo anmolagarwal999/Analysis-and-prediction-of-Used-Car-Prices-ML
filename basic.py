@@ -2,7 +2,7 @@
 # "Flask" is a class present im the package
 from flask import Flask
 
-#render_template is a function we are importing from the flask package
+#render_templatae is a function we are importing from the flask package
 from flask import render_template
 
 # "app" is an object of class "Flask"
