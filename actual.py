@@ -5,7 +5,9 @@ from flask import Flask,request,jsonify
 # render_template is a function we are importing from the flask package
 from flask import render_template
 from flask_wtf import FlaskForm
-from wtforms import SelectField
+from wtforms import SelectField,IntegerField
+from wtforms.validators import Required,NumberRange
+
 
 #############################################################
 # importing stuff
@@ -64,9 +66,31 @@ brand_list=list(brand_set)
 brand_list.sort()
 print(brand_list)
 ##########################################################
+# master_list=['name','power','mileage','city']
+
+# year                                        2015--------------
+# kms                                        41000
+# fuel                                      Diesel------------
+# transmission                              Manual-----------------
+# owner                                      First-----------
+# engine                                      1582
+# seats                                          5-----------------
+# price                                       12.5
+# brand                                    Hyundai------------
+# model                                      Creta---------------
+
 class carForm(FlaskForm):
     car_brand=SelectField('brand',choices=brand_list)
     car_model=SelectField('model',choices=[])
+    car_fuel=SelectField('fuel',choices=['CNG', 'Diesel', 'Petrol', 'LPG', 'Electric'])
+    car_owner=SelectField('owner',choices=['First', 'Second', 'Fourth & Above', 'Third'])
+    car_seats=IntegerField('seats',validators=[Required(),NumberRange(min=0,max=12)])
+    car_year=IntegerField('year',validators=[Required(),NumberRange(min=1998,max=2020)])
+    car_transmission=SelectField('transmission',choices=['Manual', 'Automatic'])
+    car_engine=IntegerField('engine',validators=[Required(),NumberRange(min=0)])
+    car_kms=IntegerField('kms_driven',validators=[Required(),NumberRange(min=0)])
+
+
 
 print(info)
 def getModels(brand):
@@ -83,7 +107,7 @@ def getModels(brand):
 def index():
     form_obj=carForm()
     form_obj.car_model.choices=getModels("Audi")
-    if request.method=='POST':
+    if request.method=='POST' and form.validate_on_submit():
         return f'<h1>{form_obj.car_brand.data}->{form_obj.car_model.data}</h1>'
     return render_template("index.html",form=form_obj)
 
