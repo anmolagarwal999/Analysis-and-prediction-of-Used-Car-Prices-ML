@@ -10,8 +10,11 @@ form{
 }
 
 #table_div{
-    width:80%;
+    width:120%;
     margin:auto;
+    margin-left:-10%;
+    margin-right:-10%;
+
 }
 
 #table_result{
