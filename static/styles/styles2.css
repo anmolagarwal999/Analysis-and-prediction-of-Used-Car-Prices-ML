@@ -1,5 +1,10 @@
+
 #form_div
 {
     background-color: white;
     color: black;
+}
+
+form{
+    padding: 5px 5px 5px 5px;
 }
