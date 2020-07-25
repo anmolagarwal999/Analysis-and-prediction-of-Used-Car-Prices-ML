@@ -5,7 +5,9 @@ from flask import Flask,request,jsonify
 # render_template is a function we are importing from the flask package
 from flask import render_template
 from flask_wtf import FlaskForm
-from wtforms import SelectField
+from wtforms import SelectField,IntegerField
+from wtforms import BooleanField, StringField, PasswordField, validators
+from wtforms.validators import NumberRange,InputRequired
 
 #############################################################
 # importing stuff
@@ -67,6 +69,7 @@ brand_list.sort()
 class carForm(FlaskForm):
     car_brand=SelectField('brand',choices=[(x,x) for x in brand_list])
     car_model=SelectField('model',choices=[],validate_choice=False)
+    car_year=IntegerField("Year",validators=[NumberRange(min=1998, max=2019, message='Year should be between 1998 and 2019')])
 
 #print(info)
 def getModels(brand):
