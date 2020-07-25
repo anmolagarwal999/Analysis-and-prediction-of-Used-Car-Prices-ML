@@ -69,7 +69,18 @@ brand_list.sort()
 class carForm(FlaskForm):
     car_brand=SelectField('brand',choices=[(x,x) for x in brand_list])
     car_model=SelectField('model',choices=[],validate_choice=False)
-    car_year=IntegerField("Year",validators=[NumberRange(min=1998, max=2019, message='Year should be between 1998 and 2019')])
+    car_year=IntegerField("Year",validators=[NumberRange(min=1998, max=2019, message='Year should be between 1998 and 2019'),InputRequired()])
+    car_kms=IntegerField("Kms",validators=[NumberRange(min=0,message='Kms driven cannot be negative'),InputRequired()])
+    car_owner=SelectField('owner',choices=[(x,x) for x in ['First', 'Second', 'Fourth & Above', 'Third']])
+    car_transmission=SelectField('transmission',choices=[(x,x) for x in ['Manual', 'Automatic']])
+    car_fuel=SelectField('fuel',choices=[(x,x) for x in ['Petrol', 'CNG', 'Diesel', 'LPG', 'Electric']])
+    car_seats=IntegerField("Seats",validators=[NumberRange(min=1, max=12, message='Seats between 1-12'),InputRequired()])
+    car_engine=IntegerField("Engine displacement",validators=[NumberRange(min=0, message='Year should be more than 0'),InputRequired()])
+
+
+
+
+
 
 #print(info)
 def getModels(brand):

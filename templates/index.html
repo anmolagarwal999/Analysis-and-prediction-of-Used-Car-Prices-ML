@@ -12,9 +12,17 @@
 <body>
     <form method="POST">
         {{form.csrf_token}}
-        {{form.car_brand}}
-        {{form.car_model}}
-        {{form.car_year}}
+        {{form.car_brand.label}} {{form.car_brand}}
+        {{form.car_model.label}}{{form.car_model}}
+        {{form.car_year.label}}{{form.car_year}}
+        {{form.car_kms.label}}{{form.car_kms}}
+        {{form.car_owner.label}}{{form.car_owner}}
+        {{form.car_transmission.label}}{{form.car_transmission}}
+        {{form.car_fuel.label}}{{form.car_fuel}}
+        {{form.car_seats.label}}{{form.car_seats}}
+        {{form.car_engine.label}}{{form.car_engine}}
+
+
         <input type="submit">
     </form>
 
