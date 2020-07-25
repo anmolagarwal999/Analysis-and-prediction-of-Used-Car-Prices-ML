@@ -132,6 +132,10 @@ def model_fetch(company):
     model_list.sort()
     return jsonify({'models_list':model_list})   
 
+@app.route('/testing')
+def voila():
+    return render_template("main.html")
+
 
 if __name__ == "__main__":
     # debug - True helps to make the real changes in code visible in the browser
