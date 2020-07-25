@@ -124,7 +124,7 @@ def index():
     form_obj.car_brand.data="Audi"
     form_obj.car_model.choices=getModels(form_obj.car_brand.data)
 
-    return render_template("index.html",form=form_obj)
+    return render_template("main.html",form=form_obj)
 
 @app.route('/brand/<company>')
 def model_fetch(company):

@@ -27,9 +27,10 @@
     <h1>{{ans}}</h1>
 
     <script>
-        
+        //alert("loaded");
         $('#car_brand').on('change', function () {
             brand_now=this.value;
+            console.log("changed");
 
             $.getJSON('/brand/'+brand_now, function(dict) {
                  console.log(dict);
