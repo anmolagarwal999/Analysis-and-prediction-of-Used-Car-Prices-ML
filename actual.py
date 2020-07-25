@@ -54,7 +54,7 @@ input_dict={
 
 input_df=pd.DataFrame(input_dict)
 ans=predict_values(input_df,regressor,train_cols,sc)
-print(ans)
+#print(ans)
 #############################################################
 
 brand_set=set()
@@ -62,13 +62,13 @@ for i in info.values():
     brand_set.add(i)
 brand_list=list(brand_set)
 brand_list.sort()
-print(brand_list)
+#print(brand_list)
 ##########################################################
 class carForm(FlaskForm):
-    car_brand=SelectField('brand',choices=brand_list)
-    car_model=SelectField('model',choices=[])
+    car_brand=SelectField('brand',choices=[(x,x) for x in brand_list])
+    car_model=SelectField('model',choices=[],validate_choice=False)
 
-print(info)
+#print(info)
 def getModels(brand):
     model_list=[]
     for key,val in info.items():
@@ -82,9 +82,11 @@ def getModels(brand):
 @app.route('/',methods=['POST','GET'])
 def index():
     form_obj=carForm()
+    #print(form_obj.car_brand.choices)
     form_obj.car_model.choices=getModels("Audi")
-    if request.method=='POST':
+    if request.method=='POST' and form_obj.validate_on_submit():    
         return f'<h1>{form_obj.car_brand.data}->{form_obj.car_model.data}</h1>'
+    
     return render_template("index.html",form=form_obj)
 
 @app.route('/brand/<company>')
