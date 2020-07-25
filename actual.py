@@ -42,7 +42,7 @@ with open('train_cols.pickle', 'rb') as f:
 with open('sc.pickle', 'rb') as f:
     sc=pickle.load(f)
 
-input_dict={
+input_dict1={
     "brand":["Hyundai"],
     "model":["Creta"],
     "seats":[5],
@@ -54,7 +54,7 @@ input_dict={
     "kms":[41000] 
     }
 
-input_df=pd.DataFrame(input_dict)
+input_df=pd.DataFrame(input_dict1)
 ans=predict_values(input_df,regressor,train_cols,sc)
 #print(ans)
 #############################################################
@@ -111,20 +111,22 @@ def index():
         "year":[form_obj.car_year.data],
         "kms":[form_obj.car_kms.data] 
         }
+        form_obj.car_model.choices=getModels(form_obj.car_brand.data)
 
         input_df=pd.DataFrame(input_dict)
         '''NOTE THE PASS BY REFERENCE CONUNDRUM'''
         print(input_df)
         ans=predict_values(input_df,regressor,train_cols,sc)
-        #print(type(ans))
+        print(type(ans))
+        ans=ans.to_dict();
         print(ans)
-        return render_template("index.html",form=form_obj,ans=ans)
-        return f'<h1>{form_obj.car_brand.data}->{form_obj.car_model.data}</h1>'
+        print(ans["brand"][0])
+        return render_template("main.html",form=form_obj,ans=ans)
 
     form_obj.car_brand.data="Audi"
     form_obj.car_model.choices=getModels(form_obj.car_brand.data)
-
-    return render_template("main.html",form=form_obj)
+    ans={"brand":"-1"}
+    return render_template("main.html",form=form_obj,ans=ans)
 
 @app.route('/brand/<company>')
 def model_fetch(company):

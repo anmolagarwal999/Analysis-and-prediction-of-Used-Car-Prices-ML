@@ -73,8 +73,43 @@
         <button type="submit" class="btn btn-primary">Get prediction</button>
     </form>
 </div>
+<div class="container" id="table_div">
+    {%if ans['brand'] !='-1'%}
+    <table class="table" id="table_result">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Brand</th>
+                <th scope="col">Model</th>
+                <th scope="col">Year</th>
+                <th scope="col">Kms Driven</th>
+                <th scope="col">FuelType</th>
+                <th scope="col">Engine(in cc)</th>
+                <th scope="col">Transmission</th>
+                <th scope="col">Random Forest prediction in lakhs in Rs</th>
 
-<h1>{{ans}}</h1>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ans['brand'][0]}}</td>
+                <td>{{ans['model'][0]}}</td>
+                <td>{{ans['year'][0]}}</td>
+                <td>{{ans['kms'][0]}}</td>
+                <td>{{ans['fuel'][0]}}</td>
+                <td>{{ans['engine'][0]}}</td>
+                <td>{{ans['transmission'][0]}}</td>
+                <td>{{ans['Random_Forest_price'][0]}}</td>
+
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
+{%endif%}
 
 
 

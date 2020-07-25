@@ -8,3 +8,14 @@
 form{
     padding: 5px 5px 5px 5px;
 }
+
+#table_div{
+    width:80%;
+    margin:auto;
+}
+
+#table_result{
+    background-color: white;
+    width:100%;
+}
+
