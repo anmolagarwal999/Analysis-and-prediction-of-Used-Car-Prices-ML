@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form method="POST">
+    <form method="POST" autocomplete="off">
         {{form.csrf_token}}
         {{form.car_brand.label}} {{form.car_brand}}
         {{form.car_model.label}}{{form.car_model}}
@@ -22,9 +22,9 @@
         {{form.car_seats.label}}{{form.car_seats}}
         {{form.car_engine.label}}{{form.car_engine}}
 
-
         <input type="submit">
     </form>
+    <h1>{{ans}}</h1>
 
     <script>
         

@@ -97,10 +97,33 @@ def getModels(brand):
 def index():
     form_obj=carForm()
     #print(form_obj.car_brand.choices)
-    form_obj.car_model.choices=getModels("Audi")
-    if request.method=='POST' and form_obj.validate_on_submit():    
-        return f'<h1>{form_obj.car_brand.data}->{form_obj.car_model.data}</h1>'
     
+    #print(form_obj.car_brand.data)
+    if request.method=='POST' and form_obj.validate_on_submit():    
+        input_dict={
+        "brand":[form_obj.car_brand.data],
+        "model":[form_obj.car_model.data],
+        "seats":[form_obj.car_seats.data],
+        "engine":[form_obj.car_engine.data],
+        "owner":[form_obj.car_owner.data],
+        "fuel":[form_obj.car_fuel.data],
+        "transmission":[form_obj.car_transmission.data],
+        "year":[form_obj.car_year.data],
+        "kms":[form_obj.car_kms.data] 
+        }
+
+        input_df=pd.DataFrame(input_dict)
+        '''NOTE THE PASS BY REFERENCE CONUNDRUM'''
+        print(input_df)
+        ans=predict_values(input_df,regressor,train_cols,sc)
+        #print(type(ans))
+        print(ans)
+        return render_template("index.html",form=form_obj,ans=ans)
+        return f'<h1>{form_obj.car_brand.data}->{form_obj.car_model.data}</h1>'
+
+    form_obj.car_brand.data="Audi"
+    form_obj.car_model.choices=getModels(form_obj.car_brand.data)
+
     return render_template("index.html",form=form_obj)
 
 @app.route('/brand/<company>')
