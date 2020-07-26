@@ -132,4 +132,4 @@ def about():
 if __name__ == "__main__":
     # debug - True helps to make the real changes in code visible in the browser
     # debug -True job is to display debugging pages if an error occurs
-    app.run(debug=False)
+    app.run(debug=True)
