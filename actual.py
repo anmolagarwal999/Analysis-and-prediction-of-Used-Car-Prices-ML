@@ -74,7 +74,7 @@ class carForm(FlaskForm):
     car_owner=SelectField('owner',choices=[(x,x) for x in ['First', 'Second', 'Fourth & Above', 'Third']])
     car_transmission=SelectField('transmission',choices=[(x,x) for x in ['Manual', 'Automatic']])
     car_fuel=SelectField('fuel',choices=[(x,x) for x in ['Petrol', 'CNG', 'Diesel', 'LPG', 'Electric']])
-    car_seats=IntegerField("Seats",validators=[NumberRange(min=1, max=12, message='Seats between 1-12'),InputRequired()])
+    car_seats=IntegerField("Seats",validators=[NumberRange(min=2, max=12, message='Seats between 1-12'),InputRequired()])
     car_engine=IntegerField("Engine displacement",validators=[NumberRange(min=0, message='Year should be more than 0'),InputRequired()])
 
 
