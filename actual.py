@@ -10,9 +10,7 @@ from wtforms.validators import NumberRange,InputRequired
 #############################################################
 # importing stuff
 import pandas as pd
-import seaborn as sns
 import numpy as np
-import nltk
 import pickle
 ########################################
 from predict_value import predict_values
