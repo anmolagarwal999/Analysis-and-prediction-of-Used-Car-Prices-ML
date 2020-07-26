@@ -78,11 +78,6 @@ class carForm(FlaskForm):
     car_engine=IntegerField("Engine displacement (in CC)",validators=[NumberRange(min=0, message='Engine cc should be more than 0'),InputRequired()])
 
 
-
-
-
-
-#print(info)
 def getModels(brand):
     model_list=[]
     for key,val in info.items():
