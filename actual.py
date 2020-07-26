@@ -134,9 +134,9 @@ def model_fetch(company):
     model_list.sort()
     return jsonify({'models_list':model_list})   
 
-@app.route('/testing')
-def voila():
-    return render_template("main.html")
+@app.route('/about')
+def about():
+    return render_template("about.html")
 
 
 if __name__ == "__main__":

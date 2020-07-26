@@ -1,0 +1,56 @@
+{% extends "parent.html" %}
+
+{%block content%}
+<!----------------------------------------------------------------------------->
+
+
+<div class="container" id="more">
+    <h4>About</h4>
+    <p>The aim is here to develop a ML model hat predicts the price of used cars based on its features, in order to make
+        informed purchases. The model is trained on a dataset consisting of sale prices of different makes and models
+        across cities in India between the years <b>1998 and 2019</b>.The features available in the training dataset
+        were <b> Mileage, Make, Model, Year, kms travelled,transmisson, fuel type and City</b>.The model is not flawless
+        but in most cases, it does a
+        decent job of predicting an approximate value of the cars selling price in current Indian market.</p>
+
+    <h4>Motivation</h4>
+    <p>When shopping for a used vehicle, typically an overriding concern is: Am I paying too much? This question is
+        often difficult to answer due to the fact that it's hard to keep track of all the vehicles of interest currently
+        available on the market.<br>Deciding if a used car is worth the cost put by the seller is a difficult task. Even
+        for
+        the seller, it is a challenge to decide the selling price of a car as it should neither be too low so as to
+        cause a loss, nor too high that it puts off potential customers. Several factors including make,model,year,kms
+        driven etc can affect the actual worth of a car. The motivation of this project is to help predict correct worth
+        of used cars.</p>
+    <h4>Random Forest
+    </h4>
+    <p>Random forest is a supervised learning algorithm. The "forest" it builds, is an ensemble of decision trees,
+        usually trained with the “bagging” method. The general idea of the bagging method is that a combination of
+        learning models increases the overall result.</p>
+    <h4>Final Conclusions
+    </h4>
+    <p>Like most data science problems, this work would have undoubtedly benefitted from cleaner (and more) data. While
+        the details provided in the downloaded listings are quite comprehensive,some features, especially 'name',seemed
+        to have too many variations with even the same car model having multiple sub-categories.</p>
+    <a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Link to GitHub
+        repo</a>
+    <a href="#" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">Link to
+        model.ipynb</a>
+
+
+</div>
+
+
+
+
+<!----------------------------------------------------------------------------->
+{%endblock%}
+
+{%block some_js%}
+<script>
+    $(".home_class").toggleClass("active");
+    $(".about_class").addClass("active");
+
+
+</script>
+{%endblock%}
