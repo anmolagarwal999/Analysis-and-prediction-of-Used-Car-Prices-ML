@@ -4,7 +4,6 @@ certifi==2020.4.5.1
 chardet==3.0.4
 click==7.1.2
 distlib==0.3.0
-distro-info===0.18ubuntu0.18.04.1
 entrypoints==0.3
 filelock==3.0.12
 flake8==3.7.9
@@ -40,7 +39,6 @@ pycodestyle==2.5.0
 pycrypto==2.6.1
 pycups==1.9.73
 pyflakes==2.1.1
-pygame==1.9.4.dev0
 pygobject==3.26.1
 pymacaroons==0.13.0
 PyNaCl==1.1.2
