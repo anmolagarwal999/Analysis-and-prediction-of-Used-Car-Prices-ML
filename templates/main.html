@@ -3,7 +3,7 @@
 {%block content%}
 <!----------------------------------------------------------------------------->
 <div class="container" id="form_div">
-    <form method="POST" autocomplete="off">
+    <form method="POST" autocomplete="off" action="{{ url_for('index') }}">
         {{form.csrf_token}}
 
 

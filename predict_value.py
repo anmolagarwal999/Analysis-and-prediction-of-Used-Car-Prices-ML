@@ -26,7 +26,7 @@ def predict_values(cars,regressor,train_cols,sc):
     cars2 =cars2[train_cols]
     #########################################################################
     X = cars2[train_cols]
-    print(train_cols)
+    #print(train_cols)
 
     global X_test2
     X_test = sc.transform(X)
