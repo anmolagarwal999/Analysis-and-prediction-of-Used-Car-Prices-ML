@@ -52,42 +52,9 @@ with open('sc.pickle', 'wb') as f:
     # Pickle the 'data' dictionary using the highest protocol available.
     pickle.dump(sc,f)
 
-
-
-
-
-
-
-
-
-
 #############################################################
-
-
-# # @app.route() creates a simple route
-# @app.route('/')
-# def index():
-#     return "<h1>This is basic.py file</h1>"
-
-
-# @app.route('/predict')
-# def get_data():
-#     pass
-
 
 # @app.route('/information')
 # def information():
 #     return "<h1>Vought International is evil corp</h1>"
 # # ///////////////////////////////////////////
-
-
-# @app.route('/hero/<name>')
-# def hero(name):
-#     # print(name)
-#     return f"<h1>The name of the hero is {name}</h1>"
-
-
-# if __name__ == "__main__":
-#     # debug - True helps to make the real changes in code visible in the browser
-#     # debug -True job is to display debugging pages if an error occurs
-#     app.run(debug=True)

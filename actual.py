@@ -1,12 +1,10 @@
 # Here "flask" is the package name
 # "Flask" is a class present im the package
-from flask import Flask,request,jsonify
-
 # render_template is a function we are importing from the flask package
-from flask import render_template
+from flask import Flask,request,jsonify,render_template
+
 from flask_wtf import FlaskForm
-from wtforms import SelectField,IntegerField
-from wtforms import BooleanField, StringField, PasswordField, validators
+from wtforms import SelectField,IntegerField,BooleanField, StringField, PasswordField, validators
 from wtforms.validators import NumberRange,InputRequired
 
 #############################################################
@@ -14,7 +12,6 @@ from wtforms.validators import NumberRange,InputRequired
 import pandas as pd
 import seaborn as sns
 import numpy as np
-import matplotlib.pyplot as plt
 import nltk
 import pickle
 ########################################
@@ -42,20 +39,20 @@ with open('train_cols.pickle', 'rb') as f:
 with open('sc.pickle', 'rb') as f:
     sc=pickle.load(f)
 
-input_dict1={
-    "brand":["Hyundai"],
-    "model":["Creta"],
-    "seats":[5],
-    "engine":[1582],
-    "owner":["First"],
-    "fuel":["Diesel"],
-    "transmission":["Manual"],
-    "year":[2015],
-    "kms":[41000] 
-    }
+# input_dict1={
+#     "brand":["Hyundai"],
+#     "model":["Creta"],
+#     "seats":[5],
+#     "engine":[1582],
+#     "owner":["First"],
+#     "fuel":["Diesel"],
+#     "transmission":["Manual"],
+#     "year":[2015],
+#     "kms":[41000] 
+#     }
 
-input_df=pd.DataFrame(input_dict1)
-ans=predict_values(input_df,regressor,train_cols,sc)
+# input_df=pd.DataFrame(input_dict1)
+# ans=predict_values(input_df,regressor,train_cols,sc)
 #print(ans)
 #############################################################
 
