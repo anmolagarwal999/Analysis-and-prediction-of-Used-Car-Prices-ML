@@ -67,15 +67,15 @@ brand_list.sort()
 #print(brand_list)
 ##########################################################
 class carForm(FlaskForm):
-    car_brand=SelectField('brand',choices=[(x,x) for x in brand_list])
-    car_model=SelectField('model',choices=[],validate_choice=False)
+    car_brand=SelectField('Brand',choices=[(x,x) for x in brand_list])
+    car_model=SelectField('Model',choices=[],validate_choice=False)
     car_year=IntegerField("Year",validators=[NumberRange(min=1998, max=2019, message='Year should be between 1998 and 2019'),InputRequired()])
     car_kms=IntegerField("Kms",validators=[NumberRange(min=0,message='Kms driven cannot be negative'),InputRequired()])
-    car_owner=SelectField('owner',choices=[(x,x) for x in ['First', 'Second', 'Fourth & Above', 'Third']])
-    car_transmission=SelectField('transmission',choices=[(x,x) for x in ['Manual', 'Automatic']])
-    car_fuel=SelectField('fuel',choices=[(x,x) for x in ['Petrol', 'CNG', 'Diesel', 'LPG', 'Electric']])
+    car_owner=SelectField('Owner Type',choices=[(x,x) for x in ['First', 'Second', 'Fourth & Above', 'Third']])
+    car_transmission=SelectField('Transmission',choices=[(x,x) for x in ['Manual', 'Automatic']])
+    car_fuel=SelectField('Fuel',choices=[(x,x) for x in ['Petrol', 'CNG', 'Diesel', 'LPG', 'Electric']])
     car_seats=IntegerField("Seats",validators=[NumberRange(min=2, max=12, message='Seats between 1-12'),InputRequired()])
-    car_engine=IntegerField("Engine displacement",validators=[NumberRange(min=0, message='Year should be more than 0'),InputRequired()])
+    car_engine=IntegerField("Engine displacement (in CC)",validators=[NumberRange(min=0, message='Engine cc should be more than 0'),InputRequired()])
 
 
 
@@ -115,12 +115,12 @@ def index():
 
         input_df=pd.DataFrame(input_dict)
         '''NOTE THE PASS BY REFERENCE CONUNDRUM'''
-        print(input_df)
+       # print(input_df)
         ans=predict_values(input_df,regressor,train_cols,sc)
-        print(type(ans))
+        #print(type(ans))
         ans=ans.to_dict();
-        print(ans)
-        print(ans["brand"][0])
+        # print(ans)
+        # print(ans["brand"][0])
         return render_template("main.html",form=form_obj,ans=ans)
 
     form_obj.car_brand.data="Audi"
