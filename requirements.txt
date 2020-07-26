@@ -37,7 +37,6 @@ pycodestyle==2.5.0
 pycrypto==2.6.1
 pycups==1.9.73
 pyflakes==2.1.1
-pygobject==3.26.1
 pymacaroons==0.13.0
 PyNaCl==1.1.2
 pyperclip==1.8.0
