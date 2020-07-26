@@ -16,7 +16,7 @@ The dataset is [here](Data_Train(1).xlsx). The missing outliers/anomalous data w
 The model and corresponding analysis can be found [here](ML_model.ipynb).
 
 ## Deployment
-The model is being hosted [here](ENTER URL).
+The model is being hosted [here](https://prediction-of-used-car-prices.herokuapp.com/).
 The data was processed and stored [here](ideal.xlsx) to be used by [index.py](index.py).
 
 [index.py](index.py) trains the model and stores the regressor as a .pickle file.
