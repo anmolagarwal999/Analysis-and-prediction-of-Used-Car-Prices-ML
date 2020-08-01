@@ -12,6 +12,9 @@ Deciding if a used car is worth the cost put by the seller is a difficult task. 
 For this project, we are using the dataset on used car sales from India.The features available in this dataset are **Mileage, Make, Model, Year, kms travelled,transmisson, fuel type and City.**
 The dataset is [here](Data_Train(1).xlsx). The missing outliers/anomalous data was dealt with/replaced with data from [CarDekho](https://www.cardekho.com/)
 
+### Link to webpage where the model has been deployed
+https://prediction-of-used-car-prices.herokuapp.com/
+
 ## The Model and analysis
 The model and corresponding analysis can be found [here](ML_model.ipynb).
 
